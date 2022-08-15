@@ -16,4 +16,4 @@ This program is used to find the Wi-Fi name (SSID), username (if applicable), an
     
 ### Notes
 - OS Language must be in English because string comparisons are used.
-- Networks with special types of authentications cannot be revealed through command prompt.    
+- Networks with special types of authentications (e.g. enterprise) cannot be revealed through command prompt.    
