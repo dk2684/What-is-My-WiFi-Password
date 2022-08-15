@@ -8,3 +8,5 @@ This executable is used to find the username (if applicable) and password of the
 ### Options
 
 ### Notes
+- OS Language must be in English because string comparisons are used.
+- Networks with special types of authentications cannot be revealed through command prompt.    
