@@ -1,4 +1,4 @@
-# imports
+# import module to create new process
 import subprocess
 
 # list of profiles that will hold network SSIDs
