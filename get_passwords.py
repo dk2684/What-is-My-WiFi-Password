@@ -51,16 +51,16 @@ for i in profiles:
                 # removes excess characters and saves only network key
                 results = [row.split(":")[1][1:-1]]
 
-        # if there is password it will print the pass word
+        # if key exists: prints SSID key
         try:
             print("{:<30}| {:<}".format(i, results[0]))
             
-        # else it will print blank in front of pass word
+        # else: prints blank key, in cases such as key content not being available
         except IndexError:
             print("{:<30}| {:<}".format(i, ""))
                 
         
                 
-    # called when this process get failed
+    # exception if process fails or throws error
     except subprocess.CalledProcessError:
         print ("{:<30}|  {:<}".format(i, "** Encoding Error Occurred **"))
