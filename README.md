@@ -17,5 +17,6 @@ This program is used to find the Wi-Fi name (SSID) and password (key) of all net
     N/A
     
 ### Notes
+- Supported Operating Systems: Windows 7 or above
 - OS Language must be in English because string comparisons are used.
 - Networks with special types of authentications (e.g. enterprise) cannot be revealed through command prompt.    
