@@ -4,7 +4,9 @@ This program is used to find the Wi-Fi name (SSID) and password (key) of all net
 ### Usage (default)
     git clone https://github.com/dk2684/What-is-My-WiFi-Password.git
     cd What-is-My-WiFi-Password
-    python get_passwords.py
+    python get_passwords.py (Saves information to standard text file)
+    OR
+    python print_passwords.py (Prints information to standard output)
     
 ### Example Output
     Wi-Fi Name (SSID)             | Password
