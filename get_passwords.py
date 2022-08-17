@@ -63,4 +63,4 @@ for i in profiles:
                 
     # exception if process fails or throws error
     except subprocess.CalledProcessError:
-        print ("{:<30}|  {:<}".format(i, "** Encoding Error Occurred **"))
+        print ("{:<30}|  {:<}".format(i, "Encoding Error Occurred"))
