@@ -4,6 +4,9 @@ import subprocess
 # list of profiles that will hold network SSIDs
 profiles = []
 
+# text that will be saved to .txt file
+output = ""
+
 # getting raw output data
 output_data = subprocess.check_output(['netsh', 'wlan', 'show', 'profiles'])
 
@@ -29,9 +32,9 @@ for i in data:
         profiles.append(i)
 
 
-# print formatted heading    
-print("{:<30}| {:<}".format("Wi-Fi Name (SSID)", "Password"))
-print("----------------------------------------------")
+# inputs formatted heading    
+output += "{:<30}| {:<}\n".format("Wi-Fi Name (SSID)", "Password")
+output += ("----------------------------------------------\n")
 
 # loops through list of profiles
 for i in profiles:
@@ -51,16 +54,23 @@ for i in profiles:
                 # removes excess characters and saves only network key
                 results = [row.split(":")[1][1:-1]]
 
-        # if key exists: prints SSID key
+        # if key exists: inputs SSID key
         try:
-            print("{:<30}| {:<}".format(i, results[0]))
+            output += "{:<30}| {:<}\n".format(i, results[0])
             
-        # else: prints blank key, in cases such as key content not being available
+        # else: inputs blank key, in cases such as key content not being available
         except IndexError:
-            print("{:<30}| {:<}".format(i, ""))
+            output += "{:<30}| {:<}\n".format(i, "")
                 
         
                 
     # exception if process fails or throws error
     except subprocess.CalledProcessError:
-        print ("{:<30}|  {:<}".format(i, "Encoding Error Occurred"))
+        output +=  "{:<30}|  {:<}\n".format(i, "Encoding Error Occurred")
+
+# duplicate files will be overwritten, otherwise new .txt file will be created
+with open('./network_passwords.txt', 'w') as file:
+    file.write(output)
+
+# print success message to standard output
+print("Process complete. Network information has been saved to \"network_passwords.txt\" in this directory.")
